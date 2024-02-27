@@ -38,6 +38,7 @@
         <div class="flex flex-col items-center gap-20 pt-20">
           <!-- screen -->
           <div
+            id="artboard"
             class="artboard artboard-horizontal phone-6 border-[20px] rounded-2xl border-[#010313CC] bg-[#FFFFFFB3]"
           >
             <div class="flex justify-center">
@@ -121,6 +122,24 @@
           </h1>
           <button onclick="play()" class="btn">Play Again</button>
           <p>Practice will make you a Pro</p>
+        </div>
+      </section>
+      <section
+        id="modals"
+        class="fixed justify-center items-center w-full h-full top-0"
+      >
+        <div
+          class="p-4 bg-[red] rounded-md w-[300px] h-28 flex justify-center items-center flex-col relative"
+        >
+          <button
+            onclick="closeModal()"
+            id="x"
+            class="bg-red-600 p-4 rounded-full text-white font-bold w-8 h-8 flex justify-center items-center absolute -top-1 -right-1"
+          >
+            X
+          </button>
+          <p class="text-xl font-bold">Are you sure ?</p>
+          <p class="text-xl font-bold">Close this window</p>
         </div>
       </section>
     </main>

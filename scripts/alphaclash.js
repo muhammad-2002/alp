@@ -1,5 +1,8 @@
 let audio = new Audio()
 let isPlayGame = false;
+const  alphabetBord = getElementById('artboard')
+const modals = getElementById('modals')
+const x = getElementById('x')
 function keyUpHandler (event){
     if (isPlayGame ===false) return
     const expectedInput = event.key
@@ -14,6 +17,7 @@ function keyUpHandler (event){
 
     if(expectedInput === displayAlphabet){
         
+        
         audio.src='/audio/audio1.wav'
         audio.play()
        let scoreId = paresIntser('scoreId')
@@ -27,6 +31,8 @@ function keyUpHandler (event){
         setElementById('lifeId',lifeId)
         audio.src='/audio/audio2.wav'
         audio.play()
+        const parsentangeColor = (lifeId/5)*100;
+        alphabetBord.style.background = `linear-gradient(#FFFFFFB3 ${parsentangeColor}% ,red)`
 
 
         if(lifeId === 0){
@@ -46,8 +52,7 @@ function continueGame(){
     const currentAlphabet = getElementById('current-alphabet')
     currentAlphabet.innerText = randomAlphabets
     setBackgroudColorById(randomAlphabets)
-    console.log(randomAlphabets)
-    
+   
 }
 
 
@@ -71,7 +76,19 @@ function gameOver(){
     hideElementById('play-ground')
     showElementById('final-score')
     isPlayGame= false
+    alphabetBord.style.background = `linear-gradient(#FFFFFFB3 100% ,red)`
     
      
 }
+function openmodal(event){
+    if(event.clientY <=20){
+        modals.style.display = 'flex'
+    }
+
+}
+function closeModal(){
+    
+    modals.style.display ='none'
+}
+document.body.onmouseover = openmodal
 
